@@ -1,0 +1,16 @@
+.contenedor{
+    background-image: url("../image/fondoRedRestaurante.jpg") ;
+    background-size: cover;
+}
+
+.titulo{
+    font-size: 90px;
+    font-family: cursive;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.contenido{
+    margin: 50px 120px 50px 150px;
+    font-size: 20px;
+}

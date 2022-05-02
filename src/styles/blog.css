@@ -1,0 +1,14 @@
+.entrada{
+    background-color: rgb(227, 236, 236);
+    border-radius: 8%;
+}
+
+.titulo-blog{
+    font-size: 35px;
+    font-family: cursive;
+}
+
+.boton{
+    text-decoration: none;
+    color: black;
+}
