@@ -8,6 +8,7 @@ import Blog from "./components/Blog"
 import UsuariosAdmin from "./components/UsuariosAdmin";
 import EntradasAdmin from "./components/EntradasAdmin";
 import CrearEntrada from "./components/CrearEntrada";
+import CrearComentario from "./components/CrearComentario";
 import ComentariosAdmin from "./components/ComentariosAdmin";
 import EntradaAmpliada from "./components/EntradaAmpliada";
 import Login from "./components/Login";
@@ -28,6 +29,7 @@ function App() {
       <Switch>
         {/* <Route exact strict path="/entradaAmpliada/:id" component={EntradaAmpliada} /> */}
         <Route path="/crearEntrada" component={CrearEntrada} credentials={credentials}/>
+        <Route path="/crearComentario" component={CrearComentario} credentials={credentials}/>
         <Route exact strict path="/entradaAmpliada/:id" component={EntradaAmpliada} credentials={credentials}>
         <EntradaAmpliada />
         </Route>
