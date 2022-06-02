@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import {useParams} from 'react-router-dom';
 import '../styles/entradaAmpliada.css'
-import { Form, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 
-const EntradaAmpliada = () => {
+const EntradaAmpliada = ({credentials}) => {
 
     const {id} = useParams();
     //console.log(id);
@@ -37,22 +37,26 @@ const EntradaAmpliada = () => {
         <div className='contenedor'>
             <div className='titulo'>{entradaAmpliada.titulo}</div>
             <p className='contenido'>{entradaAmpliada.texto} </p>
-            <div>
+            
+            <div className='comentario'>
                 {comentarios.length > 0 ? (
                     comentarios.map((comentario) => (
                     <tr key={`comentario.id`}>
-                        <td>{comentario.texto}</td>
+
                         <td></td>
-                        <td></td>
+                        <td className='comentario-bloque'>{comentario.texto}</td>
+                        <td className='comentario-separador'></td>
+                        
                     </tr>
                     ))
                 ) : (
                     <tr>
-                    <td colSpan={3}>No hay Anunciantes</td>
+                    <td colSpan={3}>No hay comentarios</td>
                     </tr>
                 )}
+                
                 <div className="container mt-4 mb-2">
-                    <Button Link as={Link} to={"/crearComentario"} variant="secondary" size="lg">
+                    <Button Link as={Link} to={"/crearComentario"} variant="warning" size="sm">
                         Crear Comentario
                     </Button>
                 </div>

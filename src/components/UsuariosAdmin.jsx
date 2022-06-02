@@ -26,6 +26,7 @@ function UsuariosAdmin() {
     fetch(`http://localhost:8080/usuarios/${id}`,{
       method:"DELETE"
     })
+      .then(res => res.json())
       .then((response)=>{
         if(response.ok){
           setUsuarios(usuarios.filter(usuario => usuario.id !== id))

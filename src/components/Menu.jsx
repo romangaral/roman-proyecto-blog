@@ -4,7 +4,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { Link } from 'react-router-dom';
 import '../styles/menu.css'
 
-function Menu() {
+function Menu({credentials}) {
     return (
         <div>
             <Navbar bg="dark" variant="dark">
@@ -15,12 +15,25 @@ function Menu() {
                         <Nav className="mx-auto menu">
                             <Nav.Link as={Link} to={"/"}>Inicio</Nav.Link>
                             <Nav.Link as={Link} to={"/blog"}>Blog</Nav.Link>
-                            <Nav.Link as={Link} to={"/contacto"}>Contacto</Nav.Link>
-                            <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
-                            <Nav.Link as={Link} to={"/registro"}>Registro</Nav.Link>
-                            <Nav.Link as={Link} to={"/admin"}>Admin</Nav.Link>
+
+                            {credentials.rol === "ANONYMOUS"
+                            ? <Nav.Link as={Link} to={"/login"}>Login</Nav.Link>
+                            : <Nav.Link as={Link} to={"/logout"}>Logout</Nav.Link>
+                            }
+                            
+                            {credentials.rol === "ANONYMOUS"
+                            ? <Nav.Link as={Link} to={"/registro"}>Registro</Nav.Link>
+                            : null
+                            }
+                            
+                            {credentials.rol === "Admin"
+                            ?<Nav.Link as={Link} to={"/admin"}>Admin</Nav.Link>
+                            : null
+                            }
+
                         </Nav>
                     </Navbar.Collapse>
+                    <Navbar.Brand>{credentials.nombre}</Navbar.Brand>
                 </Container>
             </Navbar>
         </div>

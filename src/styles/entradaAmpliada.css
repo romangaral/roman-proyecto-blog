@@ -14,3 +14,17 @@
     margin: 50px 120px 50px 150px;
     font-size: 20px;
 }
+
+.comentario{
+    margin: 50px 120px 50px 250px;
+    font-size: 18px;
+}
+
+.comentario-bloque{
+    background-color: aliceblue;
+    padding: 10px 200px 10px 10px;
+    border: 1px solid black;
+    margin-top: 10px;
+    border-radius: 12px;
+}
+

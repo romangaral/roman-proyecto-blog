@@ -12,6 +12,7 @@ import CrearComentario from "./components/CrearComentario";
 import ComentariosAdmin from "./components/ComentariosAdmin";
 import EntradaAmpliada from "./components/EntradaAmpliada";
 import Login from "./components/Login";
+import Logout from "./components/Logout";
 import Registro from "./components/Registro"
 
 function App() {
@@ -20,28 +21,28 @@ function App() {
     header: '',
     rol: 'ANONYMOUS', 
     isLogged: false,
+    nombre: '',
   });
 
 
+  console.log(credentials);
   return (
     <Router>
-      <Menu />
+      <Menu credentials={credentials}/>
       <Switch>
-        {/* <Route exact strict path="/entradaAmpliada/:id" component={EntradaAmpliada} /> */}
-        <Route path="/crearEntrada" component={CrearEntrada} credentials={credentials}/>
-        <Route path="/crearComentario" component={CrearComentario} credentials={credentials}/>
-        <Route exact strict path="/entradaAmpliada/:id" component={EntradaAmpliada} credentials={credentials}>
-        <EntradaAmpliada />
-        </Route>
-        <Route path="/entradasAdmin" component={EntradasAdmin} credentials={credentials}/>
-        <Route path="/usuariosAdmin" component={UsuariosAdmin} credentials={credentials}/>
-        <Route path="/comentariosAdmin" component={ComentariosAdmin} credentials={credentials}/>
-        <Route path="/admin" component={UsuariosAdmin} credentials={credentials}/>
-        <Route path="/blog" component={Blog} credentials={credentials}/>
-        <Route path="/contacto" component={Contacto} credentials={credentials}/>
-        <Route path="/login" component={Login} credentials={credentials} setCredentials={setCredentials}/>
-        <Route path="/registro" component={Registro} credentials={credentials}/>
-        <Route path="/" component={Home} credentials={credentials}/>
+        <Route exact path="/crearEntrada" component={CrearEntrada} credentials={credentials}/>
+        <Route exact path="/crearComentario" component={CrearComentario} credentials={credentials}/>
+        <Route exact strict path="/entradaAmpliada/:id" component={EntradaAmpliada} credentials={credentials}/>
+        <Route exact path="/usuariosAdmin" component={UsuariosAdmin} credentials={credentials}/>
+        <Route exact path="/comentariosAdmin" component={ComentariosAdmin} credentials={credentials}/>
+        <Route exact path="/admin" component={UsuariosAdmin} credentials={credentials}/>
+        <Route exact path="/blog" component={Blog} credentials={credentials}/>
+        <Route exact path="/contacto" component={Contacto} credentials={credentials}/>
+        <Route exact path="/login" credentials={credentials} component={() => <Login setCredentials={setCredentials} credentials={credentials} />}/>
+        <Route exact path="/logout" component={() => <Logout setCredentials={setCredentials} credentials={credentials} />} credentials={credentials}/>
+        <Route exact path="/registro" component={Registro} credentials={credentials} setCredentials={setCredentials}/>
+        <Route exact path="/" component={Home} credentials={credentials}/>
+        <Route exact path="/entradasAdmin" component={EntradasAdmin} credentials={credentials}/>
       </Switch>
     </Router>
   );
