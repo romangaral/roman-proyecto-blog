@@ -54,7 +54,6 @@ const EntradaAmpliada = ({credentials}) => {
                     <td colSpan={3}>No hay comentarios</td>
                     </tr>
                 )}
-                
                 <div className="container mt-4 mb-2">
                     <Button Link as={Link} to={"/crearComentario"} variant="warning" size="sm">
                         Crear Comentario
@@ -67,33 +66,3 @@ const EntradaAmpliada = ({credentials}) => {
 
 export default EntradaAmpliada
 
-// import React, { useState, useEffect } from 'react';
-// import {useParams} from 'react-router-dom';
-// import getEntradasAmpliada from '../helpers/getEntradaAmpliada';
-
-// const EntradaAmpliada = () => {
-
-//     const {id} = useParams();
-//     //console.log(id);
-
-//     const [entradaAmpliada, setEntradaAmpliada] = useState([])
-
-//     useEffect(() => {
-//         updateEntradasAmpliada();
-//     },[id])
-
-//     const updateEntradasAmpliada = () => {
-//         getEntradasAmpliada().then((newEntradas) => {
-//           setEntradaAmpliada(newEntradas);
-//         });
-//       };
-
-//     return (
-//         <div>
-//             <p>{entradaAmpliada.titulo}</p>
-//             <p>{entradaAmpliada.texto} </p>
-//         </div>
-//     )
-// }
-
-// export default EntradaAmpliada
